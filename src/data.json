@@ -1,0 +1,57 @@
+{
+  "rituals": [
+    {
+      "name": "Morning",
+      "id": "1",
+      "theme": "lightTheme",
+      "tasks": [
+        {
+          "name": "Brush Teeth",
+          "description": "Brush your fucking teeth",
+          "completed": true,
+          "id": "3"
+        },
+        {
+          "name": "Take pills",
+          "description": "Vitamins, mood stabilizers, etc",
+          "completed": true,
+          "id": "4"
+        },
+        {
+          "name": "Apply lotion",
+          "description": "Put lotion on areas of dry skin",
+          "completed": true,
+          "id": "5"
+        }
+      ]
+    },
+    {
+      "name": "Bedtime",
+      "id": "2",
+      "theme": "darkTheme",
+      "tasks": [
+        {
+          "name": "Light candles",
+          "description": "Light some candles",
+          "completed": true,
+          "id": "6"
+        },
+        {
+          "name": "Brush Teeth",
+          "description": "Brush your fucking teeth",
+          "completed": true,
+          "id": "7"
+        },
+        {
+          "name": "Take pills",
+          "description": "Take pills for nighttime",
+          "completed": true,
+          "id": "8"
+        }
+      ]
+    }
+  ]
+}
+
+
+

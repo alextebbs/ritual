@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState, useEffect, useRef} from "react";
+import styled from "styled-components";
+import Ritual from "components/organisms/Ritual";
 
-function App() {
+const Wrap = styled.div`
+  max-width: 500px;
+  margin: 0px auto;
+`
+
+const Heading = styled.h1`
+  font-weight: normal;
+`
+
+function App(props) {
+  const [rituals, setRitualsState] = useState(props.rituals);
+
+  const ritualList = rituals
+    .map(ritual => (
+      <Ritual
+        id={ritual.id}
+        name={ritual.name}
+        key={ritual.id}
+        tasks={ritual.tasks}
+        theme={ritual.theme}
+      />
+    )
+  );
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrap>
+      <Heading>RITUAL</Heading>
+
+      {ritualList}
+    </Wrap>
   );
 }
 
