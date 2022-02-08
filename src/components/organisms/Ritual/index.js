@@ -8,6 +8,7 @@ import { lightTheme, darkTheme } from "theme/theme"
 import IconButton from "components/atoms/IconButton";
 import HiddenText from "components/atoms/HiddenText";
 import { GrLock, GrUnlock } from "react-icons/gr";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Wrap = styled.div`
   background: ${props => props.theme.background};
@@ -39,6 +40,11 @@ const HeadingWrap = styled.div`
     padding-left: 18px;
     margin: 0px;
   }
+`
+
+const ListItem = styled.li`
+  list-style-type: none;
+  overflow: hidden;
 `
 
 export default function Ritual(props) {
@@ -96,16 +102,25 @@ export default function Ritual(props) {
 
   const ritual = tasks
     .map(task => (
-      <Task
-        id={task.id}
-        name={task.name}
-        completed={task.completed}
-        key={task.id}
-        toggleTaskCompleted={toggleTaskCompleted}
-        deleteTask={deleteTask}
-        editTask={editTask}
-        isEditable={isEditable}
-      />
+      <AnimatePresence>
+        <ListItem
+          as={motion.li}
+          initial={{ height: 0 }}
+          animate={{ height: 61 }}
+          exit={{ height: 0 }}
+        >
+          <Task
+            id={task.id}
+            name={task.name}
+            completed={task.completed}
+            key={task.id}
+            toggleTaskCompleted={toggleTaskCompleted}
+            deleteTask={deleteTask}
+            editTask={editTask}
+            isEditable={isEditable}
+          />
+        </ListItem>
+      </AnimatePresence>
     )
   );
 

@@ -1,6 +1,7 @@
 import {useState} from "react";
 import styled from "styled-components";
 import Ritual from "components/organisms/Ritual";
+import { motion } from "framer-motion";
 
 const Wrap = styled.div`
   max-width: 500px;
@@ -24,7 +25,11 @@ function App(props) {
 
 
   return (
-    <Wrap>
+    <Wrap
+      as={motion.div}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+    >
       {ritualList}
     </Wrap>
   );

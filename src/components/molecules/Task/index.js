@@ -33,9 +33,6 @@ const ActionsWrap = styled.div`
   display: flex;
 `
 
-const ListItem = styled.li`
-  list-style-type: none;
-`
 
 export default function Task(props) {
 
@@ -66,33 +63,31 @@ export default function Task(props) {
   }, [wasEditing, isEditing]);
 
   return (
-    <ListItem>
-      <Wrap as='form' onSubmit={handleSubmit}>
-        <ContentWrap>
-          <Checkbox
-            id={props.id}
-            defaultChecked={props.completed}
-            onChange={() => props.toggleTaskCompleted(props.id)}
-          />
-          <TextInput
-            id={props.id}
-            value={newName}
-            onChange={handleChange}
-            ref={editFieldRef}
-            disabled={!props.isEditable}
-          />
-        </ContentWrap>
-        {props.isEditable && 
-          <ActionsWrap>
-            <IconButton
-              type="button"
-              onClick={() => props.deleteTask(props.id)}
-            >
-              <FiTrash /><HiddenText>Delete {props.name}</HiddenText>
-            </IconButton>
-          </ActionsWrap>
-        }
-      </Wrap>
-    </ListItem>
+    <Wrap as='form' onSubmit={handleSubmit}>
+      <ContentWrap>
+        <Checkbox
+          id={props.id}
+          defaultChecked={props.completed}
+          onChange={() => props.toggleTaskCompleted(props.id)}
+        />
+        <TextInput
+          id={props.id}
+          value={newName}
+          onChange={handleChange}
+          ref={editFieldRef}
+          disabled={!props.isEditable}
+        />
+      </ContentWrap>
+      {props.isEditable && 
+        <ActionsWrap>
+          <IconButton
+            type="button"
+            onClick={() => props.deleteTask(props.id)}
+          >
+            <FiTrash /><HiddenText>Delete {props.name}</HiddenText>
+          </IconButton>
+        </ActionsWrap>
+      }
+    </Wrap>
   );
 }

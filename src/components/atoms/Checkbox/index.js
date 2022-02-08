@@ -1,12 +1,19 @@
 import { FiCheck } from 'react-icons/fi'
 import styled from 'styled-components'
+import HiddenText from '../HiddenText'
 
 const CheckboxWrapper = styled.div`
   height: 60px;
   width: 60px;
 
   input {
-    display: none;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
   }
 `
 
@@ -38,10 +45,10 @@ const FakeCheck = styled.label`
     }
   }
 
-  &:hover {
+  &:hover, input:focus ~ & {
     ${FakeCheckInner} {
       background-color: #0078d722;
-      border: 1px solid #0078d7;
+      border: 2px solid #0078d7;
     }
   }
 `
@@ -52,7 +59,7 @@ const Component = function (props) {
       <input type='checkbox' {...props} />
       <FakeCheck htmlFor={props.id}>
         <FakeCheckInner>
-          <FiCheck />
+          <FiCheck /><HiddenText>Toggle Task Completion</HiddenText>
         </FakeCheckInner>
       </FakeCheck>
     </CheckboxWrapper>
