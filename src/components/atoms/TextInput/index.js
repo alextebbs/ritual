@@ -7,10 +7,24 @@ const Component = React.forwardRef((props, ref) => (
 
 const TextInput = styled(Component)`
   color: ${props => props.theme.foreground};
-  background: ${props => props.theme.inputBackground};
-  padding: 12px 12px;
+  background: transparent;
+  padding: 12px 18px;
   border: none;
   border-radius: none;
+  height: 60px;
+
+  &[disabled]:hover {
+    background: transparent;
+  }
+
+  &:hover {
+    background: ${props => props.theme.inputBackgroundFocus};
+  }
+
+  &:focus {
+    outline: none;
+    background: ${props => props.theme.inputBackgroundFocus};
+  }
 `
 
 export default TextInput

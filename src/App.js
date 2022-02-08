@@ -1,14 +1,10 @@
-import {useState, useEffect, useRef} from "react";
+import {useState} from "react";
 import styled from "styled-components";
 import Ritual from "components/organisms/Ritual";
 
 const Wrap = styled.div`
   max-width: 500px;
   margin: 0px auto;
-`
-
-const Heading = styled.h1`
-  font-weight: normal;
 `
 
 function App(props) {
@@ -29,8 +25,6 @@ function App(props) {
 
   return (
     <Wrap>
-      <Heading>RITUAL</Heading>
-
       {ritualList}
     </Wrap>
   );

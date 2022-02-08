@@ -4,12 +4,12 @@ export const lightTheme = {
   'background': 'white',
   'foreground': '#222',
   'borderColor': "#eee",
-  'inputBackground': "#eee"
+  'inputBackgroundFocus': "#eee"
 }
 
 export const darkTheme = {
   'background': 'black',
   'foreground': 'white',
-  'borderColor': "#111",
-  'inputBackground': "#111"
+  'borderColor': "#333",
+  'inputBackgroundFocus': "#222"
 }

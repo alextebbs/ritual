@@ -7,45 +7,39 @@
       "tasks": [
         {
           "name": "Brush Teeth",
-          "description": "Brush your fucking teeth",
-          "completed": true,
+          "completed": false,
           "id": "3"
         },
         {
           "name": "Take pills",
-          "description": "Vitamins, mood stabilizers, etc",
-          "completed": true,
+          "completed": false,
           "id": "4"
         },
         {
           "name": "Apply lotion",
-          "description": "Put lotion on areas of dry skin",
-          "completed": true,
+          "completed": false,
           "id": "5"
         }
       ]
     },
     {
-      "name": "Bedtime",
+      "name": "Evening",
       "id": "2",
       "theme": "darkTheme",
       "tasks": [
         {
           "name": "Light candles",
-          "description": "Light some candles",
-          "completed": true,
+          "completed": false,
           "id": "6"
         },
         {
           "name": "Brush Teeth",
-          "description": "Brush your fucking teeth",
-          "completed": true,
+          "completed": false,
           "id": "7"
         },
         {
           "name": "Take pills",
-          "description": "Take pills for nighttime",
-          "completed": true,
+          "completed": false,
           "id": "8"
         }
       ]

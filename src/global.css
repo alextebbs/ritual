@@ -2,3 +2,7 @@ body {
   font-family: monospace;
   background: #777;
 }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}

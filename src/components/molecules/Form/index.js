@@ -1,6 +1,6 @@
 import {useState} from "react";
 import HiddenText from "components/atoms/HiddenText";
-import Button from "components/atoms/Button";
+import IconButton from "components/atoms/IconButton";
 import {FiPlus} from "react-icons/fi";
 import TextInput from "components/atoms/TextInput";
 import styled from "styled-components";
@@ -9,7 +9,20 @@ const Wrap = styled.form`
   display: flex;
 
   ${TextInput} {
-    width: 100%;
+    height: 60px;
+    flex-grow: 1;
+  }
+
+  ${IconButton} {
+    height: 60px;
+    width: 60px;
+    background: transparent;
+    color: ${props => props.theme.foreground};
+    border-left: 1px solid ${props => props.theme.borderColor};
+
+    &:hover {
+      background: ${props => props.theme.inputBackgroundFocus}
+    }
   }
 `
 
@@ -39,9 +52,9 @@ export default function Form(props) {
         value={name}
         onChange={handleChange}
       />
-      <Button type="submit">
+      <IconButton type="submit">
         <FiPlus /><HiddenText>Add Task</HiddenText>
-      </Button>
+      </IconButton>
     </Wrap>
   );
 }
