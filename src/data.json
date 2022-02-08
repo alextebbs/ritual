@@ -6,17 +6,17 @@
       "theme": "lightTheme",
       "tasks": [
         {
-          "name": "Brush Teeth",
+          "name": "Brush teeth",
           "completed": false,
           "id": "3"
         },
         {
-          "name": "Take pills",
+          "name": "Take vitamins",
           "completed": false,
           "id": "4"
         },
         {
-          "name": "Apply lotion",
+          "name": "Make breakfast",
           "completed": false,
           "id": "5"
         }
@@ -33,12 +33,12 @@
           "id": "6"
         },
         {
-          "name": "Brush Teeth",
+          "name": "Make tea",
           "completed": false,
           "id": "7"
         },
         {
-          "name": "Take pills",
+          "name": "Brush teeth",
           "completed": false,
           "id": "8"
         }
