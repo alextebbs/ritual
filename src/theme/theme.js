@@ -1,5 +1,3 @@
-
-
 export const lightTheme = {
   'background': 'white',
   'foreground': '#222',

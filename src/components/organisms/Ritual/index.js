@@ -1,5 +1,5 @@
-import {nanoid} from "nanoid";
-import {useState, useEffect, useRef} from "react";
+import { nanoid } from "nanoid";
+import { useState } from "react";
 import Form from "components/molecules/Form";
 import Task from "components/molecules/Task";
 import styled from 'styled-components';
@@ -48,19 +48,12 @@ const HeadingWrap = styled.div`
   }
 `
 
-const ListItem = styled.li`
-  list-style-type: none;
-  overflow: hidden;
-`
-
 export default function Ritual(props) {
   const [tasks, setTasksState] = useState(props.tasks);
-
   const [isEditable, setIsEditable] = useState(false);
 
   function setTasks(newTasks) {
     localStorage.setItem('tasks', JSON.stringify(newTasks));
-    console.log(newTasks);
     setTasksState(newTasks);
   }
 
@@ -99,56 +92,43 @@ export default function Ritual(props) {
   }
 
   function toggleIsEditable() {
-    if (isEditable == true) {
+    if (isEditable === true) {
       setIsEditable(false);
     } else {
       setIsEditable(true);
     }
   }
 
-  const ritual = tasks
-    .map(task => (
-      <AnimatePresence>
-        <ListItem
-          as={motion.li}
-          initial={{ height: 0 }}
-          animate={{ height: 61 }}
-          exit={{ height: 0 }}
-        >
-          <Task
-            id={task.id}
-            name={task.name}
-            completed={task.completed}
-            key={task.id}
-            toggleTaskCompleted={toggleTaskCompleted}
-            deleteTask={deleteTask}
-            editTask={editTask}
-            isEditable={isEditable}
-          />
-        </ListItem>
-      </AnimatePresence>
-    )
-  );
-
   return (
-    <ThemeProvider theme={props.theme == 'lightTheme' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={props.theme === 'lightTheme' ? lightTheme : darkTheme}>
       <Wrap>
         <HeadingWrap>
           <Heading>{props.name}</Heading>
 
           <IconButton onClick={() => toggleIsEditable()}>
-            {isEditable == true &&
+            {isEditable === true &&
               <><GrUnlock /><HiddenText>Lock Changes</HiddenText></>
             }
 
-            {isEditable == false &&
+            {isEditable === false &&
               <><GrLock /><HiddenText>Make Changes</HiddenText></>
             }
           </IconButton>
         </HeadingWrap>
 
         <List aria-labelledby="list-heading" >
-          {ritual}
+          {tasks.map(task => (
+            <Task
+              id={task.id}
+              name={task.name}
+              completed={task.completed}
+              key={task.id}
+              toggleTaskCompleted={toggleTaskCompleted}
+              deleteTask={deleteTask}
+              editTask={editTask}
+              isEditable={isEditable}
+            />
+          ))}
         </List>
 
         {isEditable && 

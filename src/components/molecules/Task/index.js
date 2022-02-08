@@ -1,10 +1,12 @@
-import {useEffect, useRef, useState} from "react";
+import {memo, useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 import { FiTrash } from "react-icons/fi";
 import HiddenText from "components/atoms/HiddenText";
 import IconButton from "components/atoms/IconButton";
 import TextInput from "components/atoms/TextInput";
 import Checkbox from "components/atoms/Checkbox";
+import { AnimatePresence, motion } from "framer-motion";
+import { nanoid } from "nanoid";
 
 function usePrevious(value) {
   const ref = useRef();
@@ -33,8 +35,12 @@ const ActionsWrap = styled.div`
   display: flex;
 `
 
+const ListItem = styled.li`
+  list-style-type: none;
+  overflow: hidden;
+`
 
-export default function Task(props) {
+const Task = memo(function Task(props) {
 
   const [isEditing, setEditing] = useState(false);
   const [newName, setNewName] = useState(props.name);
@@ -62,32 +68,52 @@ export default function Task(props) {
     }
   }, [wasEditing, isEditing]);
 
+  console.log('Task ' + props.id + ' Rendering')
+
   return (
-    <Wrap as='form' onSubmit={handleSubmit}>
-      <ContentWrap>
-        <Checkbox
-          id={props.id}
-          defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
-        />
-        <TextInput
-          id={props.id}
-          value={newName}
-          onChange={handleChange}
-          ref={editFieldRef}
-          disabled={!props.isEditable}
-        />
-      </ContentWrap>
-      {props.isEditable && 
-        <ActionsWrap>
-          <IconButton
-            type="button"
-            onClick={() => props.deleteTask(props.id)}
-          >
-            <FiTrash /><HiddenText>Delete {props.name}</HiddenText>
-          </IconButton>
-        </ActionsWrap>
-      }
-    </Wrap>
+    <AnimatePresence>
+      <ListItem
+        as={motion.li}
+        initial={{height: 0 }}
+        animate={{height: 61 }}
+        exit={{height: 0 }}
+      >
+        <Wrap as='form' onSubmit={handleSubmit}>
+          <ContentWrap>
+            <Checkbox
+              id={props.id}
+              defaultChecked={props.completed}
+              onChange={() => props.toggleTaskCompleted(props.id)}
+            />
+            <TextInput
+              id={props.id}
+              value={newName}
+              onChange={handleChange}
+              ref={editFieldRef}
+              disabled={!props.isEditable}
+            />
+          </ContentWrap>
+          {props.isEditable && 
+            <AnimatePresence>
+              <ActionsWrap
+                as={motion.div}
+                initial={{x: 60 }}
+                animate={{x: 0 }}
+                exit={{x: 60 }}
+              >
+                <IconButton
+                  type="button"
+                  onClick={() => props.deleteTask(props.id)}
+                >
+                  <FiTrash /><HiddenText>Delete {props.name}</HiddenText>
+                </IconButton>
+              </ActionsWrap>
+            </AnimatePresence>
+          }
+        </Wrap>
+      </ListItem>
+    </AnimatePresence>
   );
-}
+});
+
+export default Task;

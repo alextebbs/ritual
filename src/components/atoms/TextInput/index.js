@@ -13,6 +13,10 @@ const TextInput = styled(Component)`
   border-radius: none;
   height: 60px;
 
+  &[disabled] {
+    color: ${props => props.theme.foreground};
+  }
+
   &[disabled]:hover {
     background: transparent;
   }
