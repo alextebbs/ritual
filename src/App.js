@@ -6,6 +6,10 @@ import { motion } from "framer-motion";
 const Wrap = styled.div`
   max-width: 500px;
   margin: 0px auto;
+
+  @media screen and (max-width: 520px) {
+    max-width: 100%;
+  }
 `
 
 function App(props) {

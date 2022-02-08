@@ -16,6 +16,12 @@ const Wrap = styled.div`
   margin-bottom: 48px;
   margin-top: 48px;
   overflow: hidden;
+
+  @media screen and (max-width: 520px) {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
 `
 
 const List = styled.ul`
