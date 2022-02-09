@@ -135,6 +135,7 @@ export default function Ritual(props) {
           <Form addTask={addTask} />
         }
       </Wrap>
+
     </ThemeProvider>
   );
 }

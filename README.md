@@ -14,6 +14,7 @@ Simple To-do list app for managing your moring/evening "rituals".
 - Add more animations w/ Framer Motion.
 - Add intro screen with routes to switch between morning/evening rituals.
 - Add drag + drop functionality to reorder task list.
+- Allow user to clear and reset list once all tasks are complete.
 
 ## Run/Build
 

@@ -12,6 +12,21 @@ const Wrap = styled.div`
   }
 `
 
+const Link = styled.a`
+  text-align: center;
+  margin-top: 48px;
+  display: block;
+  font-size: 13px;
+  color: #bbb;
+  font-weight: normal;
+  text-decoration: none;
+
+  &:hover {
+    color: #fff;
+  }
+`
+
+
 function App(props) {
   const [rituals, setRitualsState] = useState(props.rituals);
 
@@ -30,6 +45,9 @@ function App(props) {
           theme={ritual.theme}
         />
       ))}
+
+      <Link href="https://github.com/alextebbs/ritual">View source code on Github</Link>
+
     </Wrap>
   );
 }
