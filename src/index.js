@@ -4,7 +4,6 @@ import 'normalize.css';
 import './global.css';
 import App from './App';
 import DATA from './data.json';
-// import reportWebVitals from './reportWebVitals';
 
 // const DATA = JSON.parse(localStorage.getItem("tasks") || "[]");
 
